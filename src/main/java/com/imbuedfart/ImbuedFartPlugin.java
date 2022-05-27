@@ -17,7 +17,7 @@ import javax.sound.sampled.*;
 @PluginDescriptor(
         name = "Imbued Fart",
         enabledByDefault = false,
-        description = "ImbuedFart"
+        description = "Plays a fart noise instead of the imbued heart sound"
 )
 public class ImbuedFartPlugin extends Plugin
 {

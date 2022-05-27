@@ -1,2 +1,2 @@
-# Example
-An example greeter plugin
+# Imbued Fart
+This plugin farts
