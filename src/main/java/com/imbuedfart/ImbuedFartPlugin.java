@@ -12,6 +12,8 @@ import net.runelite.client.plugins.PluginDescriptor;
 
 import javax.inject.Inject;
 import javax.sound.sampled.*;
+import java.io.IOException;
+import java.net.URL;
 
 @Slf4j
 @PluginDescriptor(
@@ -28,6 +30,8 @@ public class ImbuedFartPlugin extends Plugin
     private ImbuedFartConfig config;
 
     private Clip clip;
+
+    String wavPath = "fart.wav";
 
     @Provides
     ImbuedFartConfig provideConfig(final ConfigManager configManager)
@@ -62,7 +66,15 @@ public class ImbuedFartPlugin extends Plugin
                 clip.close();
             }
 
-            AudioInputStream stream = AudioSystem.getAudioInputStream(ImbuedFartPlugin.class.getResource("fart.wav"));
+            Class pluginClass = null;
+            AudioInputStream stream = null;
+            try {
+                pluginClass = Class.forName("com.imbuedfart.ImbuedFartPlugin");
+                URL url = pluginClass.getClassLoader().getResource(wavPath);
+                stream = AudioSystem.getAudioInputStream(url);
+            } catch (ClassNotFoundException | UnsupportedAudioFileException | IOException e) {
+                e.printStackTrace();
+            }
 
             if (stream == null)
             {
