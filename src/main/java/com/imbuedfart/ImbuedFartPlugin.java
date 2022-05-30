@@ -88,7 +88,7 @@ public class ImbuedFartPlugin extends Plugin
             clip.open(stream);
 
             FloatControl volume = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-            float volumeValue = volume.getMinimum() + ((50 + (config.volume()*5)) * ((volume.getMaximum() - volume.getMinimum()) / 100));
+            float volumeValue = volume.getMinimum() + ((50 + (config.volumeLevel()*5)) * ((volume.getMaximum() - volume.getMinimum()) / 100));
 
             volume.setValue(volumeValue);
 

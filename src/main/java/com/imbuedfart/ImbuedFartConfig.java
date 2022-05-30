@@ -13,12 +13,12 @@ public interface ImbuedFartConfig extends Config {
             max = 10
     )
     @ConfigItem(
-            keyName = "volume",
+            keyName = "volumeLevel",
             name = "Volume",
             description = "Adjust fart volume",
             position = 8
     )
-    default int volume() {
-        return 100;
+    default int volumeLevel() {
+        return 10;
     }
 }
