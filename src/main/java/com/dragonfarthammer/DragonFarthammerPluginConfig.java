@@ -1,12 +1,12 @@
-package com.imbuedfart;
+package com.dragonfarthammer;
 
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 import net.runelite.client.config.Range;
 
-@ConfigGroup("imbuedfart")
-public interface ImbuedFartConfig extends Config {
+@ConfigGroup("dragonfarthammer")
+public interface DragonFarthammerPluginConfig extends Config {
 
     @Range(
             min = 1,

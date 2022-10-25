@@ -1,13 +1,13 @@
-package com.imbuedfart;
+package com.dragonfarthammer;
 
 import net.runelite.client.RuneLite;
 import net.runelite.client.externalplugins.ExternalPluginManager;
 
-public class ImbuedFartPluginTest
+public class DragonFarthammerPluginTest
 {
 	public static void main(String[] args) throws Exception
 	{
-		ExternalPluginManager.loadBuiltin(ImbuedFartPlugin.class);
+		ExternalPluginManager.loadBuiltin(DragonFarthammerPlugin.class);
 		RuneLite.main(args);
 	}
 }

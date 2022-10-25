@@ -1,4 +1,4 @@
-package com.imbuedfart;
+package com.dragonfarthammer;
 
 import com.google.inject.Provides;
 import lombok.extern.slf4j.Slf4j;
@@ -17,26 +17,26 @@ import java.net.URL;
 
 @Slf4j
 @PluginDescriptor(
-        name = "Imbued Fart",
+        name = "Dragon Farthammer",
         enabledByDefault = false,
-        description = "Plays a fart noise instead of the imbued heart sound"
+        description = "Plays a fart noise instead of the Dragon Warhammer sound"
 )
-public class ImbuedFartPlugin extends Plugin
+public class DragonFarthammerPlugin extends Plugin
 {
     @Inject
     private Client client;
 
     @Inject
-    private ImbuedFartConfig config;
+    private DragonFarthammerPluginConfig config;
 
     private Clip clip;
 
     String wavPath = "fart.wav";
 
     @Provides
-    ImbuedFartConfig provideConfig(final ConfigManager configManager)
+	DragonFarthammerPluginConfig provideConfig(final ConfigManager configManager)
     {
-        return configManager.getConfig(ImbuedFartConfig.class);
+        return configManager.getConfig(DragonFarthammerPluginConfig.class);
     }
 
     @Subscribe
@@ -51,7 +51,7 @@ public class ImbuedFartPlugin extends Plugin
     @Subscribe
     public void onSoundEffectPlayed(SoundEffectPlayed event)
     {
-        if (event.getSoundId() == 3887)
+        if (event.getSoundId() == 2520)
         {
             event.consume();
             playFart();
@@ -69,7 +69,7 @@ public class ImbuedFartPlugin extends Plugin
             Class pluginClass = null;
             AudioInputStream stream = null;
             try {
-                pluginClass = Class.forName("com.imbuedfart.ImbuedFartPlugin");
+                pluginClass = Class.forName("com.dragonfarthammer.DragonFarthammerPlugin");
                 URL url = pluginClass.getClassLoader().getResource(wavPath);
                 stream = AudioSystem.getAudioInputStream(url);
             } catch (ClassNotFoundException | UnsupportedAudioFileException | IOException e) {
